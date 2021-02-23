@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - main
+      - build-*
     paths-ignore:
       - 'CHANGELOG.md'
       - 'website/**'
@@ -17,7 +18,7 @@ jobs:
       - name: Set Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: '2.6'
+          ruby-version: '2.7'
       - name: Build RubyGem
         run: ./.ci/build.sh
         working-directory: ${{github.workspace}}
